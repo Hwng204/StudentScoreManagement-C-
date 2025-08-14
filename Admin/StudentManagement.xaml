@@ -1,0 +1,56 @@
+﻿<Window x:Class="StudentScoreManager.Student.StudentManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentScoreManager.Student"
+        mc:Ignorable="d"
+        Title="Student Management" Height="500" Width="850" WindowStartupLocation="CenterScreen">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Menu buttons -->
+            <RowDefinition Height="Auto"/>
+            <!-- Search -->
+            <RowDefinition Height="*"/>
+            <!-- DataGrid -->
+            <RowDefinition Height="Auto"/>
+            <!-- Action buttons -->
+        </Grid.RowDefinitions>
+
+        <!-- Navigation Buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,10">
+            <Button x:Name="classScr" Content="Class" Width="80" Margin="0,0,10,0" Click="classScr_Click"/>
+            <Button Content="Student" Width="80" Margin="0,0,10,0"/>
+            <Button x:Name="teacherScr" Content="Teacher" Width="80" Margin="0,0,10,0" Click="teacherScr_Click"/>
+            <Button x:Name="subjectScr" Content="Subject" Width="80" Margin="0,0,10,0" Click="subjectScr_Click"/>
+            <Button x:Name="logout" Content="Logout" Width="80" Click="logout_Click"/>
+        </StackPanel>
+
+        <!-- Search Bar -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,0,0,10" VerticalAlignment="Top">
+            <TextBlock Text="Search by Student Code:" VerticalAlignment="Center"/>
+            <TextBox x:Name="keyword" Width="200" Margin="10,0"/>
+            <Button x:Name="searchbtn" Content="Search" Width="80" Margin="10,0" Click="searchbtn_Click"/>
+        </StackPanel>
+
+        <!-- DataGrid -->
+        <DataGrid x:Name="list" Grid.Row="2" AutoGenerateColumns="False" Margin="0,0,0,10" 
+                  HeadersVisibility="Column" CanUserAddRows="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Student Code" Binding="{Binding StudentCode}" Width="*"/>
+                <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}" Width="2*"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="2*"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Action Buttons -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button x:Name="add" Content="Add" Width="80" Margin="5" Click="add_Click"/>
+            <Button x:Name="update" Content="Update" Width="80" Margin="5" Click="update_Click"/>
+            <Button Content="Detail" Width="80" Margin="5" Click="Button_Click"/>
+            <Button x:Name="delete" Content="Delete" Width="80" Margin="5" Click="delete_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

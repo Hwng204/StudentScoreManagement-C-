@@ -1,0 +1,46 @@
+﻿<Window x:Class="StudentScoreManager.Admin.ClassManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentScoreManager.Admin"
+        mc:Ignorable="d"
+        Title="Class Management" Height="500" Width="850"
+        WindowStartupLocation="CenterScreen"
+        Background="#f0f2f5">
+    <Grid x:Name="logoutScr" Margin="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Top navigation buttons -->
+        <StackPanel Orientation="Horizontal" Margin="10" VerticalAlignment="Top">
+            <Button x:Name="classScr" Content="Class" Width="80" Margin="5" Height="30"/>
+            <Button x:Name="studentScr" Content="Student" Width="80" Margin="5" Height="30" Click="studentScr_Click"/>
+            <Button x:Name="teacherScr" Content="Teacher" Width="80" Margin="5" Height="30" Click="teacherScr_Click"/>
+            <Button x:Name="subjectScr" Content="Subject" Width="80" Margin="5" Height="30" Click="subjectScr_Click"/>
+            <Button x:Name="logout" Content="Logout" Width="80" Margin="5" Height="30" Click="logout_Click"/>
+        </StackPanel>
+
+        <!-- DataGrid -->
+        <DataGrid x:Name="list" Margin="10,60,10,80" AutoGenerateColumns="False" FontSize="14"
+                  Grid.ColumnSpan="2" HeadersVisibility="Column" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Class code" Binding="{Binding ClassCode}" Width="0.7*"/>
+                <DataGridTextColumn Header="Class name" Binding="{Binding ClassName}" Width="*"/>
+                <DataGridTextColumn Header="Subject Name" Binding="{Binding Subject.SubjectName}" Width="2*"/>
+                <DataGridTextColumn Header="Teacher Name" Binding="{Binding Teacher.FullName}" Width="2*"/>
+                <DataGridTextColumn Header="Slots" Binding="{Binding Slot}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Bottom action buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20">
+            <Button x:Name="add" Content="Add" Width="80" Margin="10" Height="30" Click="add_Click"/>
+            <Button x:Name="update" Content="Update" Width="80" Margin="10" Height="30" Click="update_Click"/>
+            <Button x:Name="delete" Content="Delete" Width="80" Margin="10" Height="30" Click="delete_Click"/>
+            <Button Content="Enrollment" Width="100" Margin="10" Height="30" Grid.Column="1" Click="Enrollment_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

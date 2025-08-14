@@ -1,0 +1,86 @@
+﻿<Window x:Class="StudentScoreManager.Admin.TeacherManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentScoreManager.Admin"
+        mc:Ignorable="d"
+        Title="Teacher Management" Height="500" Width="900"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Navigation -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,10">
+            <Button x:Name="classScr" Content="Class" Width="80" Margin="5" Height="25" Click="classScr_Click"/>
+            <Button x:Name="studentScr" Content="Student" Width="80" Margin="5" Height="25" Click="studentScr_Click"/>
+            <Button x:Name="teacherScr" Content="Teacher" Width="80" Margin="5" Height="25"/>
+            <Button x:Name="subjectScr" Content="Subject" Width="80" Margin="5" Height="25" Click="subjectScr_Click"/>
+            <Button x:Name="logout" Content="Logout" Width="80" Margin="5" Height="25" Click="logout_Click"/>
+        </StackPanel>
+
+        <!-- Search -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" VerticalAlignment="Center" Margin="0,0,0,10">
+            <TextBlock Text="Search by code:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <TextBox x:Name="keywordSearchTeacher" Width="200" Height="25" Margin="0,0,10,0"/>
+            <Button x:Name="searchTeacher" Content="Search" Width="80" Height="25" Click="searchTeacher_Click"/>
+        </StackPanel>
+
+        <!-- Main Content -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3.5*"/>
+                <ColumnDefinition Width="2.5*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- DataGrid -->
+            <DataGrid x:Name="list" AutoGenerateColumns="False" SelectionChanged="list_SelectionChanged" Margin="0,0,10,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding TeacherId}" Width="0.8*"/>
+                    <DataGridTextColumn Header="Code" Binding="{Binding TeacherCode}" Width="0.8*"/>
+                    <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}" Width="2*"/>
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="2*"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <!-- Form -->
+            <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                <TextBlock Text="Teacher Id:" Margin="0,5,0,0"/>
+                <TextBlock x:Name="teacherIdField" FontWeight="Bold" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Teacher code:"/>
+                <TextBox x:Name="teacherCodeField" Height="25" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Full name:"/>
+                <TextBox x:Name="fullNameFiled" Height="25" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Email:"/>
+                <TextBox x:Name="emailField" Height="25" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Password:"/>
+                <TextBox x:Name="passwordField" Height="25" Margin="0,0,0,10"/>
+
+                <TextBlock Text="Status:"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10" RenderTransformOrigin="0.517,2.288">
+                    <RadioButton x:Name="active" Content="Active" GroupName="status" Margin="0,0,10,0" RenderTransformOrigin="0.468,2.825"/>
+                    <RadioButton x:Name="deactive" Content="Deactive" GroupName="status"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <!-- Action Buttons -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button x:Name="add" Content="Add" Width="80" Height="30" Margin="5" Click="add_Click"/>
+            <Button x:Name="update" Content="Update" Width="80" Height="30" Margin="5" Click="update_Click"/>
+            <Button x:Name="delete" Content="Delete" Width="80" Height="30" Margin="5" Click="delete_Click"/>
+            <Button x:Name="reload" Content="Clear" Width="80" Height="30" Margin="5" Click="reload_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

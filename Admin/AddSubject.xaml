@@ -1,0 +1,31 @@
+﻿<Window x:Class="StudentScoreManager.Admin.AddSubject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentScoreManager.Admin"
+        mc:Ignorable="d"
+        Title="AddSubject" Height="450" Width="600">
+    <Grid Margin="10">
+        <StackPanel>
+            <TextBlock Text="Subject Code:"/>
+            <TextBox x:Name="subjectCodeField" />
+
+            <TextBlock Text="Subject Name:" Margin="0,10,0,0"/>
+            <TextBox x:Name="subjectNameField" />
+
+            <TextBlock Text="Assessment Components:" Margin="0,10,0,0"/>
+            <DataGrid x:Name="componentList" AutoGenerateColumns="False" Height="200">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Component Name" Binding="{Binding ComponentName}" Width="*"/>
+                    <DataGridTextColumn Header="Weight" Binding="{Binding Weight}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Button Content="Add Component" Width="120" Margin="0,0,10,0" Click="AddComponent_Click"/>
+                <Button Content="Save Subject" Width="120" Click="SaveSubject_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

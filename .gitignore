@@ -1,0 +1,16 @@
+<<<<<<< HEAD
+echo ".vs/
+=======
+# Visual Studio
+.vs/
+>>>>>>> 37f9d40d02054dca1a864336d07fa7fe520d4930
+bin/
+obj/
+*.user
+*.suo
+*.rsuser
+<<<<<<< HEAD
+Debug*/
+Release*/" > .gitignore
+=======
+>>>>>>> 37f9d40d02054dca1a864336d07fa7fe520d4930
